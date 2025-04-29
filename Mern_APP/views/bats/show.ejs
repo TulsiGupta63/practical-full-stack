@@ -1,0 +1,78 @@
+<%- include('../partials/header') %>
+
+<style>
+    body {
+  background-color: #f0f2f5;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  max-width: 700px;
+  margin-top: 60px;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+img.img-fluid {
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+  margin: 15px 0;
+}
+
+h4, h5 {
+  color: #333;
+  margin: 10px 0;
+}
+
+a.btn-warning,
+button.btn-danger {
+  margin: 10px 5px 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+a.btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+button.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+</style>
+
+<div class="container mt-4">
+  <h1><%= bat.brandName %></h1>
+  <img src="<%= bat.image %>" alt="bat" class="img-fluid">
+  <p><%= bat.desc %></p>
+  <h4>Price: ₹<%= bat.price %></h4>
+  <h5>Brand Ambassador: <%= bat.brandAmbassador %></h5>
+
+  <a href="/bats/<%= bat._id %>/edit" class="btn btn-warning">Edit</a>
+  <form action="/bats/<%= bat._id %>/delete" method="POST" style="display:inline;">
+    <button class="btn btn-danger">Delete</button>
+  </form>
+</div>
+
+<%- include('../partials/footer') %>

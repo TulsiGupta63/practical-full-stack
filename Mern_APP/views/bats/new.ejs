@@ -1,0 +1,76 @@
+<%- include('../partials/header') %>
+<style>
+    body {
+  background-color: #f2f6fc;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  max-width: 500px;
+  margin: 70px auto;
+  padding: 35px 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+form input.form-control,
+form textarea.form-control {
+  font-size: 16px;
+  height: 45px;
+  margin-bottom: 15px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form textarea.form-control {
+  height: 100px;
+  resize: none;
+}
+
+form input.form-control:focus,
+form textarea.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.4);
+  outline: none;
+}
+
+form button {
+  width: 100%;
+  height: 48px;
+  font-size: 17px;
+  font-weight: 500;
+  margin-top: 10px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background-color: #218838;
+}
+
+</style>
+
+<div class="container mt-4">
+  <h1>New Bat</h1>
+  <form action="/bats" method="POST" class="needs-validation" novalidate>
+    <input type="text" name="bat[brandName]" placeholder="Brand Name" required class="form-control mb-2">
+    <input type="number" name="bat[price]" placeholder="Price" required class="form-control mb-2">
+    <input type="text" name="bat[image]" placeholder="Image URL" required class="form-control mb-2">
+    <textarea name="bat[desc]" placeholder="Description" required class="form-control mb-2"></textarea>
+    <input type="text" name="bat[brandAmbassador]" placeholder="Brand Ambassador" required class="form-control mb-2">
+    <button class="btn btn-success">Create Bat</button>
+  </form>
+</div>
+
+<%- include('../partials/footer') %>

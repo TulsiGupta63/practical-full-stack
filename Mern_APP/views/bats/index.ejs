@@ -1,0 +1,100 @@
+<%- include('../partials/header') %>
+<style>
+    body {
+  background-color: #f5f8fa;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  margin-top: 60px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: #333;
+}
+
+a.btn-success {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 30px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+</style>
+
+<div class="container mt-4">
+  <h1>All Bats</h1>
+  <a href="/bats/new" class="btn btn-success mb-3">Add New Bat</a>
+
+  <div class="row">
+    <% bats.forEach(bat => { %>
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <img src="<%= bat.image %>" class="card-img-top" alt="Bat Image">
+          <div class="card-body">
+            <h5 class="card-title"><%= bat.brandName %></h5>
+            <p><%= bat.desc %></p>
+            <a href="/bats/<%= bat._id %>" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
